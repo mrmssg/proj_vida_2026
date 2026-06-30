@@ -1,34 +1,58 @@
-const botoes = document.querySelectorAll(".botao");  // 
-//seleciona todos os elementos HTML da página que possuem a classe "botao" e armazena na variável botoes
+const botoes = document.querySelectorAll(".botao");
 const textos = document.querySelectorAll(".aba-conteudo");
-// seleciona todos os elementos HTML da página que possuem a classe "aba-conteudo" e armazena na variável textos
-const contadores = document.querySelectorAll(".contador");
-// seleciona todos os elementos HTML da página que possuem a classe "contador" e armazena na variável contadores
 
+for (let i = 0; i < botoes.length; i++) {
+    botoes[i].onclick = function () {
 
-const tempoObjetivo1 = new Date("2026-05-10");
-// cria a variável tempoObjetivo1 e atribui o valor a data 10 de maio de 2026
-const tempoObjetivo2 = new Date("2026-08-25");
-const tempoObjetivo3 = new Date("2026-08-14");
+        for (let j = 0; j < botoes.length; j++) {
+            botoes[j].classList.remove("ativo");
+            textos[j].classList.remove("ativo");
+        }
 
-
-contadores[0].textContent = tempoObjetivo1;
-//pega o valor armazenado na variável tempoObjetivo1 e exibe esse valor dentro do primeiro elemento [índice 0] encontrado em uma lista (ou NodeList) chamada contadores
-contadores[1].textContent = tempoObjetivo2;
-contadores[2].textContent = tempoObjetivo3;
-contadores[3].textContent = tempoObjetivo3;
-
-for (let i = 0; i < botoes.length; i++) { //para todo "i=0"; "i menor do que a largura da lista botoes"; adiciona 1 a "i", 
-    botoes[i].onclick = function (){ // verifica onde o mouse foi clicado;
-  for (let j = 0; j < botoes.length; j++) {
-  botoes[j].classList.remove("ativo"); // remove a classe "ativo" do botão atual;
-  textos[j].classList.remove("ativo"); // remove a classe "ativo" da aba atual;
-}    
-    botoes[i].classList.add("ativo"); // adiciona a classe "ativo" ao botão atual;
-    textos[i].classList.add("ativo"); // adiciona a classe "ativo" a aba atual;
-};
+        botoes[i].classList.add("ativo");
+        textos[i].classList.add("ativo");
+    }
 }
 
+const contadores = document.querySelectorAll(".contador");
+const tempoObjetivo1 = new Date("2025-10-05T00:00:00");
+const tempoObjetivo2 = new Date("2025-12-05T00:00:00");
+const tempoObjetivo3 = new Date("2025-12-08T00:00:00");
+const tempoObjetivo4 = new Date("2025-12-15T00:00:00");
+
+const tempos = [tempoObjetivo1, tempoObjetivo2, tempoObjetivo3, tempoObjetivo4];
 
 
+function calculaTempo(tempoObjetivo) {
+    let tempoAtual = new Date();
+    let tempoFinal = tempoObjetivo - tempoAtual;
+    let segundos = Math.floor(tempoFinal / 1000);
+    let minutos = Math.floor(segundos / 60);
+    let horas = Math.floor(minutos / 60);
+    let dias = Math.floor(horas / 24);
 
+    segundos %= 60;
+    minutos %= 60;
+    horas %= 24;
+    if (tempoFinal > 0) {
+        return [dias, horas, minutos, segundos];
+    } else {
+        return [0, 0, 0, 0];
+    }
+}
+
+function atualizaCronometro() {
+    for (let i = 0; i < contadores.length; i++) {
+        document.getElementById("dias" + i).textContent = calculaTempo(tempos[i])[0];
+        document.getElementById("horas" + i).textContent = calculaTempo(tempos[i])[1];
+        document.getElementById("min" + i).textContent = calculaTempo(tempos[i])[2];
+        document.getElementById("seg" + i).textContent = calculaTempo(tempos[i])[3];
+    }
+}
+
+function comecaCronometro() {
+    atualizaCronometro();
+    setInterval(atualizaCronometro, 1000);
+}
+
+comecaCronometro();

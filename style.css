@@ -1,44 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap');
-/* adiciona a fonte CHAKRA PETCH para usar no site */
 
-:root{
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap');
+
+:root {
     --cor-de-fundo: #1E1E1E;
     --verde: #6FFF57;
     --branco: #FFFFFF;
     --botao-ativo: #3A375E;
     --botao-inativo: rgba(58, 55, 94, 0.5);
-    --texto-fundo: rgba(58, 22, 94, 0.3);
+    --texto-fundo: rgba(58, 55, 94, 0.3);
 }
 
-/* cria variaveis para usar como cores no site */
-
-body{
-    background-color: var(--cor-de-fundo); /* Configura a cor  do plano de fundo*/
-    color: var(--branco); /* configura a cor da letra */
-    font-family: 'Chakra Petch', sans-serif; /* configura o tipo da letra */
-    }
-
-
-.conteudo-principal { /* configura a sessão  */
-    display:flex; /* configura os elementos para aparecer lado a lado */
-    flex-direction: column; /* dispõe os elementos em coluna */
-    justify-content: center; /* justifica o conteúdo da sessão alinhando ao centro */
-    align-items: center; /* alinha os itens ao centro */
-    max-width: 1200px; /* define a largura máxima da página em 1200px */
-    width: 100%; /* define a largura usada em 100% */
-    margin: 0 auto; /* define as margens superior e inferior como "0" e direita e esquerda "automática */
+body {
+    background-color: var(--cor-de-fundo);
+    color: var(--branco);
+    font-family: 'Chakra Petch', sans-serif;
 }
 
+
+.conteudo-principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
 
 .titulo-principal {
-    text-align: left; /* alinha o texto à esquerda */
-    width: 100%; /* determine que use 100% da largura disponível na tela */
-    font-size: 32px; /* define o tamanho da fonte */
+    text-align: left;
+    width: 100%;
+    font-size: 32px;
 }
 
 .titulo-principal span {
-    color: var(--verde); /* define a cor do título principal */
+    color: var(--verde);
 }
+
 
 .botao {
     font-family: 'Chakra Petch', sans-serif;
@@ -65,11 +63,8 @@ body{
 }
 
 .botao.ativo {
-  background-color: var(--botao-ativo);
-  border-bottom: 4px solid var(--verde);
-  color: var(--verde);
-  font-weight: bold; 
-  
+    background-color: var(--botao-ativo);
+    border-bottom: 4px solid var(--verde);
 }
 
 .abas-textos {
@@ -79,31 +74,59 @@ body{
 }
 
 .aba-conteudo.ativo {
-  display: block;
+    display: block;
 }
 
 .aba-conteudo {
-  display: none;
+    display: none;
 }
 
 .aba-conteudo-titulo-principal {
-  font-size: 28px;
-  text-align: center;
+    font-size: 28px;
+    text-align: center;
 }
+
 .aba-conteudo-titulo-secundario {
-  text-align: center;
-  color: var(--verde);
-  text-transform: uppercase;
+    text-align: center;
+    color: var(--verde);
+    text-transform: uppercase;
+}
+
+.contador {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contador-digito {
+    padding: 0 16px;
+    text-align: center;
+    min-width: 100px;
+}
+
+.contador-digito-numero {
+    font-size: 80px;
+    margin: 0;
+
+}
+
+.contador-digito-texto {
+    color: var(--verde);
+    font-size: 20px;
+    margin: 0;
+
 }
 
 @media screen and (min-width: 768px) {
-    .botoes{
+    .botoes {
         display: flex;
     }
+
     .botao:first-child {
-    border-radius: 40px 0 0 0;
-}
+        border-radius: 40px 0 0 0;
+    }
+
     .botao:last-child {
-    border-radius: 0 40px 0 0;
-}
+        border-radius: 0 40px 0 0;
+    }
 }
