@@ -2,12 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap');
 
 :root {
-    --cor-de-fundo: #310F58;
-    --verde: #85FF46;
-    --branco: #FFFFFF;
-    --botao-ativo: #4176B7;
-    --botao-inativo: rgba(58, 55, 94, 0.5);
-    --texto-fundo: rgba(58, 55, 94, 0.3);
+    --cor-de-fundo: #d9e811;
+    --verde: #241261;
+    --branco: #BA1650;
+    --botao-ativo: #FFDC28;
+    --botao-inativo: rgba(69, 79, 32, 0.5);
+    --texto-fundo: rgba(77, 75, 13, 0.3);
 }
 
 body {
@@ -64,7 +64,7 @@ body {
 
 .botao.ativo {
     background-color: var(--botao-ativo);
-    border-bottom: 4px solid var(--verde);
+    border-bottom: 8px solid var(--verde);
 }
 
 .abas-textos {
@@ -75,7 +75,7 @@ body {
 
 .aba-conteudo.ativo {
     display: block;
-    background-color: var(--botao-ativo);
+    
 }
 
 .aba-conteudo {
